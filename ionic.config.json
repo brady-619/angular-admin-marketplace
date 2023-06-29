@@ -1,0 +1,7 @@
+{
+  "name": "angular-admin-marketplace",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

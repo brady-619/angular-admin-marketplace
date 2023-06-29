@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Agregar Categoria</ion-title>
+      <ion-button [routerLink]="['/categorias']">
+        <ion-icon slot="icon-only" name="arrow-undo"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/home']">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <ion-item-group>
+              <ion-item-divider> <ion-icon slot="start" color="success" name="apps"></ion-icon>
+                Catgegoria:
+                <ion-input
+                  maxlength="30"
+                  [(ngModel)]="descripcion"
+                  type="text"
+                  placeholder="Ingresa tu categoria"
+                ></ion-input>
+              </ion-item-divider>
+              <div *ngIf="descripcion!=undefined && descripcion.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+            
+
+              
+
+             
+
+              <div
+                *ngIf="descripcion!=undefined && descripcion.length>=5 "
+              >
+                <ion-button
+                  (click)="save(descripcion)"
+                  expand="block"
+                  shape="round"
+                >
+                  Guardar
+                </ion-button>
+              </div>
+            </ion-item-group>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

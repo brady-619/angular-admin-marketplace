@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Editar usuario</ion-title>
+      <ion-button [routerLink]="['/usuarios']">
+        <ion-icon slot="icon-only" name="arrow-undo"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/home']">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-content>
+            <ion-item-group>
+              <ion-item-divider> <ion-icon slot="start" color="primary" name="person"></ion-icon>
+                Nombre:
+                <ion-input
+                  maxlength="30"
+                  [(ngModel)]="nombre"
+                  type="text"
+                  placeholder="Ingresa tu nombre"
+                ></ion-input>
+              </ion-item-divider>
+              <div *ngIf="nombre!=undefined && nombre.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+            
+
+              <ion-item-divider><ion-icon slot="start" color="primary" name="call"></ion-icon>
+                Telefono:
+                <ion-input
+                  [(ngModel)]="telefono"
+                  type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                  maxlength="15"
+                  placeholder="Ingresa tu telefono"
+                ></ion-input>
+              </ion-item-divider>
+              <div *ngIf="telefono!=undefined && telefono.length<=9">
+                <ion-label color="danger"
+                  >*Debe contener al menos 10 digitos</ion-label
+                >
+              </div>
+
+              <ion-item-divider><ion-icon slot="start" color="primary" name="key"></ion-icon>
+                Password:
+                <ion-input
+                  [(ngModel)]="password"
+                  type="text"
+                  maxlength="20"
+                  placeholder="Ingresa tu password"
+                ></ion-input>
+              </ion-item-divider>
+              <div *ngIf="password!=undefined && password.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+
+
+              <ion-item-divider><ion-icon slot="start" color="primary" name="hand-left"></ion-icon>
+                Estatus:
+                <ion-list>
+                  <ion-item lines="none">
+                    <ion-select [(ngModel)]="estatus" placeholder="Selecciona estatus">
+                      <ion-select-option value="ACTIVO">ACTIVO</ion-select-option>
+                      <ion-select-option value="INACTIVO">INACTIVO</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </ion-list>
+              </ion-item-divider>
+
+
+             
+
+              <div
+                *ngIf="nombre!=undefined && nombre.length>=5 &&
+                telefono!=undefined && telefono.length>=10 &&
+                password!=undefined && password.length>=5"
+              >
+                <ion-button
+                  (click)="save(nombre, telefono,password, estatus)"
+                  expand="block"
+                  shape="round"
+                >
+                  Guardar
+                </ion-button>
+              </div>
+            </ion-item-group>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

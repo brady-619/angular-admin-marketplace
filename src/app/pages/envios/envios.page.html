@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Administrador de envios</ion-title>
+      <ion-button [routerLink]="['/home']"> <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-card>
+          <ion-card-content>
+
+            <ion-item>
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="6">
+                    <mat-form-field>
+                      <mat-label>Filter</mat-label>
+                      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nombre" #input>
+                    </mat-form-field></ion-col>
+                  <ion-col size="6">
+                    <!-- <ion-button color="success" (click)="agregar()" expand="block" shape="round">
+                      Agregar Usuario
+                    </ion-button> -->
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+
+
+
+            </ion-item>
+
+
+
+
+            <table mat-table  [dataSource]="dataSource"  matSort (matSortChange)="announceSortChange($event)" *ngIf="data" class="mat-elevation-z8">
+
+
+              <ng-container matColumnDef="orden">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by nombre"> Orden </th>
+                <td mat-cell *matCellDef="let element"> {{element.orden}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="estatus">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by nombre"> Estatus envío </th>
+                <td mat-cell *matCellDef="let element"> {{element.estatus_envio}} </td>
+              </ng-container>
+
+
+
+              
+
+     
+              <!-- <ng-container matColumnDef="options">
+                <th mat-header-cell *matHeaderCellDef> opciones </th>
+                <td mat-cell *matCellDef="let element">
+
+
+                  <ion-item  lines="none">
+
+
+
+
+                    <ion-button slot="end" (click)="editar(element.orden)" expand="block" fill="clear" shape="round">
+                      <ion-icon color="primary" name="create-outline"></ion-icon>
+                    </ion-button>
+
+
+                    <ion-button slot="end" (click)="eliminar(element.nombre)" expand="block" fill="clear" shape="round">
+                      <ion-icon color="danger" name="trash-outline"></ion-icon>
+                    </ion-button>
+                    
+                  </ion-item>
+
+
+                </td>
+              </ng-container> -->
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+           
+
+
+            <mat-paginator [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+            </mat-paginator>
+
+
+          </ion-card-content>
+        </ion-card>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+
+</ion-content>

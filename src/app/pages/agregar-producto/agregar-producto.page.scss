@@ -1,0 +1,201 @@
+ion-row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+
+
+
+ion-content{
+  --ion-background-color: linear-gradient( #f50b0b,#0858b9);
+
+}
+
+ion-card{
+  margin: auto;
+  width: 100%;
+  // border: 1px solid rgb(223, 8, 8);
+  padding: 10px;
+
+  --ion-background-color:  rgba(255, 255, 255, 0.877);
+}
+
+
+
+
+ion-label{
+
+  --color: #000;
+
+}
+
+
+ion-spinner {
+  display: block;
+  margin: auto;
+  transform: scale(1);
+}
+
+
+table {
+  width: 100%;
+}
+
+
+// .demo-table {
+//   width: 100%;
+// }
+
+.mat-column-idcatalogo {
+  width: 10px;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+.mat-column-nombre {
+  width: 10px;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+.mat-column-password {
+  width: 10px;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+.mat-column-telefono {
+  width: 10px;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+.mat-column-estatus {
+  width: 10px;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+.mat-column-options {
+  width: 10px;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+.mat-column-options {
+  width: 10px;
+  // border-left: 1px solid currentColor;
+  // border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-right: 10px;
+  text-align: center;
+}
+
+
+
+// .mat-column-demo-name {
+//   padding-left: 16px;
+//   font-size: 20px;
+// }
+
+// .mat-column-demo-weight {
+//   font-style: italic;
+// }
+
+// .mat-column-demo-symbol {
+//   width: 32px;
+//   text-align: center;
+//   font-weight: bold;
+// }
+
+ion-item{
+  --ion-item-background: transparent;
+}
+
+
+
+
+ion-input{
+  background-color:  rgb(0, 0, 0);
+
+  color:  rgb(255, 255, 255);
+   width: 100%;
+  height: 40px;
+  border-radius: 50px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+
+
+//Add this to your css/scss File
+::ng-deep {
+  .cdk-overlay-container,
+  .cdk-global-overlay-wrapper {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .cdk-overlay-container {
+    position: fixed;
+    z-index: 1000;
+  }
+
+  .cdk-overlay-pane {
+    position: absolute;
+    pointer-events: auto;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+
+color:  rgb(255, 255, 255);
+
+    background-color: rgb(0, 0, 0);
+border: 1px solid rgba(128, 128, 128);
+  }
+}
+
+
+img{
+  height: 30vh;
+  width: 30vh;
+  margin: auto;
+  display: block;
+}
+
+
+ion-textarea{
+  background-color:  rgb(0, 0, 0);
+
+  color:  rgb(255, 255, 255);
+  //  width: 100%;
+  // height: 40px;
+  border-radius: 50px;
+  --padding-start: 20px;
+  --padding-end: 20px;
+}

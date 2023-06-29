@@ -1,0 +1,290 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Agregar producto</ion-title>
+      <ion-button [routerLink]="['/productos']">
+        <ion-icon slot="icon-only" name="arrow-undo"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/home']">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <ion-card>
+          <ion-card-content>
+            <ion-item-group>
+              <ion-item-divider> <ion-icon slot="start" color="danger" name="cart"></ion-icon>
+                <ion-col size="2">
+                    Producto:
+                </ion-col>     
+                    <ion-col size="10">
+                                  <ion-input
+                  maxlength="30"
+                  [(ngModel)]="producto"
+                  type="text"
+                  placeholder="Ingresa tu producto"
+                ></ion-input>
+                </ion-col>
+              
+
+              </ion-item-divider>
+              <div *ngIf="producto!=undefined && producto.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+            
+
+
+              <ion-item-divider><ion-icon slot="start" color="success" name="cash-outline"></ion-icon>
+                <ion-col size="2">
+                  Precio:
+              </ion-col>   
+              <ion-col size="10">
+                <ion-input
+                [(ngModel)]="precio"
+                type="text"
+                maxlength="20"
+                placeholder="Ingresa precio"
+              ></ion-input>
+            </ion-col>   
+               
+              </ion-item-divider>
+              <div *ngIf="precio!=undefined && precio.length<=1">
+                <ion-label color="danger"
+                  >*Debe contener al menos 2 digitos</ion-label
+                >
+              </div>
+
+
+                          
+
+
+              <ion-item-divider><ion-icon slot="start" color="tertiary" name="albums-outline"></ion-icon>
+                <ion-col size="2">
+                  Descripcion:
+              </ion-col>   
+              <ion-col size="10">
+
+                <ion-textarea [(ngModel)]="descripcion" label="Ingresa descripcion" labelPlacement="floating" fill="outline" placeholder="Ingresa descripcion"></ion-textarea>
+                
+                
+            </ion-col>   
+               
+              </ion-item-divider>
+              <div *ngIf="descripcion!=undefined && descripcion.length<=1">
+                <ion-label color="danger"
+                  >*Debe contener al menos 2 digitos</ion-label
+                >
+              </div>
+
+
+              <ion-item-divider><ion-icon slot="start" color="tertiary" name="apps"></ion-icon>
+                <ion-col size="2">
+                  Categoria:
+              </ion-col>   
+
+              <ion-col size="10">
+                <!-- <ion-input
+                [(ngModel)]="categoria"
+                type="text"
+                maxlength="20"
+                placeholder="Ingresa tu categoria"
+              ></ion-input> -->
+
+
+              <!-- <ion-list>
+                <ion-item>
+                  <ion-select *ngFor="let item of respuestacat" [(ngModel)]="categoria" aria-label="fruit" placeholder="Select fruit">
+                    <ion-select-option value={{respuestacat.descripcion}}>respuestacat.descripcion</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list> 
+            
+            
+            -->
+
+            <ion-list>
+              
+           
+            <ion-item lines="none">
+              <ion-select [(ngModel)]="categoria" cancelText="Cancel">
+
+                <ion-select-option *ngFor="let item of foods"  [value]="item.idmkt_categorias" >{{item.descripcion}}</ion-select-option>
+
+              </ion-select>
+            </ion-item>
+ </ion-list>
+
+
+
+
+
+
+
+
+
+
+            </ion-col>   
+              
+              </ion-item-divider>
+              <div *ngIf="categoria!=undefined && categoria.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+
+
+              <ion-item-divider><ion-icon slot="start" color="primary" name="image"></ion-icon>
+                <ion-col size="2">
+                  Imagen 1:
+              </ion-col>   
+
+              <ion-col size="10">
+             
+                 <ion-input
+                  [(ngModel)]="imagen"
+                  type="text"
+                  maxlength="150"
+                  placeholder="Ingresa tu imagen"
+                ></ion-input>
+            </ion-col>   
+               
+              </ion-item-divider>
+              <div *ngIf="imagen!=undefined && imagen.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+              <div *ngIf="imagen!=undefined && imagen.length>=5">
+                <img src="{{imagen}}" alt="">   
+              </div>
+
+              
+
+
+
+              <ion-item-divider><ion-icon slot="start" color="primary" name="image"></ion-icon>
+
+                <ion-col size="2">
+                  Imagen 2:
+              </ion-col>   
+
+
+              <ion-col size="10">
+                 <ion-input
+                  [(ngModel)]="imagen2"
+                  type="text"
+                  maxlength="150"
+                  placeholder="Ingresa tu imagen2"
+                ></ion-input>
+            </ion-col>   
+              
+               
+              </ion-item-divider>
+              <div *ngIf="imagen2!=undefined && imagen2.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+              <div *ngIf="imagen2!=undefined && imagen2.length>=5">
+                <img src="{{imagen2}}" alt="">   
+              </div>
+
+
+
+              <ion-item-divider><ion-icon slot="start" color="primary" name="image"></ion-icon>
+                <ion-col size="2">
+                   Imagen 3:
+                   
+              </ion-col>   
+              <ion-col size="10">
+                 <ion-input
+                  [(ngModel)]="imagen3"
+                  type="text"
+                  maxlength="150"
+                  placeholder="Ingresa tu imagen3"
+                ></ion-input>
+            </ion-col>   
+               
+               
+              </ion-item-divider>
+              <div *ngIf="imagen3!=undefined && imagen3.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+              <div *ngIf="imagen3!=undefined && imagen3.length>=5">
+                <img src="{{imagen3}}" alt="">   
+              </div>
+
+
+
+
+              <ion-item-divider><ion-icon slot="start" color="primary" name="image"></ion-icon>
+
+                <ion-col size="2">
+                 Imagen 4:
+              </ion-col>   
+
+              <ion-col size="10">
+                                <ion-input
+                  [(ngModel)]="imagen4"
+                  type="text"
+                  maxlength="150"
+                  placeholder="Ingresa tu imagen4"
+                ></ion-input>
+            </ion-col>   
+                
+
+              </ion-item-divider>
+              <div *ngIf="imagen4!=undefined && imagen4.length<=4">
+                <ion-label color="danger"
+                  >*Debe contener al menos 5 digitos</ion-label
+                >
+              </div>
+
+              <div *ngIf="imagen4!=undefined && imagen4.length>=5">
+                <img src="{{imagen4}}" alt="">   
+              </div>
+
+              
+
+              <div
+                *ngIf="producto!=undefined && producto.length>=5 &&
+                precio!=undefined && precio.length>=2 &&
+                descripcion!=undefined && descripcion.length>=2 &&
+                categoria!=undefined && categoria>=1 &&
+                imagen!=undefined && imagen.length>=5 &&
+                imagen2!=undefined && imagen2.length>=5 &&
+                imagen3!=undefined && imagen3.length>=5 &&
+                imagen4!=undefined && imagen4.length>=5"
+
+              >
+                <ion-button
+                  (click)="save(producto, precio,descripcion,categoria, imagen, imagen2, imagen3, imagen4)"
+                  expand="block"
+                  shape="round"
+                >
+                  Guardar
+                </ion-button>
+              </div>
+            </ion-item-group>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
