@@ -22,7 +22,11 @@ export class EnviosPage implements OnInit {
 
   displayedColumns: string[] = [
     'orden',
-    'estatus'
+    'estatus_envio',
+    'proveedor',
+    'guia',
+    'options'
+    
   ];
 
   @ViewChild(MatPaginator)
@@ -77,6 +81,13 @@ this.dataSource.paginator = this.paginator;
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+
+
+  editar(orden:any){
+    console.log(orden)
+
   }
 
   
