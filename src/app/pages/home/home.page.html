@@ -1,8 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-item lines="none">
+      
+
     <ion-title class="ion-text-center">
       Admin MarketPlace - Cellular Planet
     </ion-title>
+
+    <ion-button (click)="salir()" expand="block" fill="clear" shape="round">
+      <ion-icon color="danger" size="large" slot="icon-only" name="log-out"></ion-icon>
+      
+    </ion-button>
+  </ion-item>
   </ion-toolbar>
 </ion-header>
 

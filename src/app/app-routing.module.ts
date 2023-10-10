@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'editar-producto',
     loadChildren: () => import('./pages/editar-producto/editar-producto.module').then( m => m.EditarProductoPageModule)
   },
+  {
+    path: 'actualizar-envios/:orden',
+    loadChildren: () => import('./pages/actualizar-envios/actualizar-envios.module').then( m => m.ActualizarEnviosPageModule)
+  },
 ];
 
 @NgModule({

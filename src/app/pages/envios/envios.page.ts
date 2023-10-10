@@ -6,6 +6,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { PeriodicElement } from '../categorias/categorias.page';
 import { GetOrdenesAbiertasService } from 'src/app/services/get-ordenes-abiertas.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-envios',
   templateUrl: './envios.page.html',
@@ -14,7 +15,7 @@ import { GetOrdenesAbiertasService } from 'src/app/services/get-ordenes-abiertas
 export class EnviosPage implements OnInit {
 
 
-  constructor(private getOrdenes: GetOrdenesAbiertasService,    private _liveAnnouncer: LiveAnnouncer) { }
+  constructor(private getOrdenes: GetOrdenesAbiertasService,     private router: Router,   private _liveAnnouncer: LiveAnnouncer) { }
 
 
   data: any;
@@ -25,6 +26,7 @@ export class EnviosPage implements OnInit {
     'estatus_envio',
     'proveedor',
     'guia',
+    'created',
     'options'
     
   ];
@@ -87,6 +89,11 @@ this.dataSource.paginator = this.paginator;
 
   editar(orden:any){
     console.log(orden)
+
+    this.router.navigate(['actualizar-envios/'+orden]);
+
+
+
 
   }
 

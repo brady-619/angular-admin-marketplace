@@ -1,0 +1,180 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item lines="none">
+      <ion-title class="ion-text-center">Actualizar envío: {{orden}}</ion-title>
+      <ion-button [routerLink]="['/envios']">
+        <ion-icon slot="icon-only" name="arrow-undo"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['/home']">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+
+        <ion-card>
+          <ion-card-content>
+
+
+<ion-item>
+  <ion-title class="ion-text-center">Orden: {{orden}}</ion-title>
+</ion-item>
+       
+
+
+<ion-row *ngFor="let item of data">
+  <ion-col size="8">
+
+
+
+    <ion-card-title>Producto: {{item.producto}} </ion-card-title>
+    <ion-card-title>Cantidad: {{item.cantidad}} </ion-card-title>
+   </ion-col> 
+
+   <ion-col size="4">
+       <ion-img [src]="item.imagen"></ion-img>
+
+   
+   </ion-col>
+   
+
+
+ 
+</ion-row>
+
+
+<ion-col size="12" *ngIf="data">
+
+
+
+<ion-item>
+  <ion-title class="ion-text-center">Datos del cliente </ion-title>
+</ion-item>
+<br>
+
+<ion-card-title class="ion-text-right">Fecha de compra: {{data[0].created}} </ion-card-title>
+
+
+  <ion-card-title class="ion-text-justify">Nombre: {{data[0].nombre}} </ion-card-title>
+
+
+  <ion-card-title class="ion-text-justify">Apellido: {{data[0].apellido}} </ion-card-title>
+
+
+  <ion-card-title class="ion-text-justify">Celular: {{data[0].celular}} </ion-card-title>
+
+  <ion-card-title class="ion-text-justify">Email: {{data[0].email}} </ion-card-title>
+  <br>
+
+  <ion-card-title class="ion-text-justify">Direccion: {{data[0].direccion}} </ion-card-title>
+
+
+
+  <!-- <ion-select [(ngModel)]="categoria" cancelText="Cancel" >
+
+    <ion-select-option *ngFor="let item of foods"  [value]="item.idmkt_categorias" >{{item.descripcion}}</ion-select-option>
+
+  </ion-select> -->
+
+
+
+
+  <div *ngIf="!completo">
+
+<ion-item>
+    <ion-select [(ngModel)]="estatus" label="Actualizar Estatus de pedido" label-placement="floating">
+      <ion-select-option value="EN RUTA">EN RUTA</ion-select-option>
+      <!-- <ion-select-option value="ENTREGADO">ENTREGADO</ion-select-option> -->
+    </ion-select>
+  </ion-item>
+
+
+
+
+
+
+  <ion-item>
+    <ion-select [(ngModel)]="proveedor" label="Seleccionar proveedor" label-placement="floating">
+      <ion-select-option value="CELLULAR PLANET">CELLULAR PLANET</ion-select-option>
+      <ion-select-option value="ESTAFETA">ESTAFETA</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+      <ion-item>
+    <ion-input [(ngModel)]="guia" label="Insertar el número guia" labelPlacement="floating" placeholder="Ingresa tu guia"></ion-input>
+  </ion-item>
+</div>
+
+
+<div *ngIf="completo">
+
+
+
+  <ion-item>
+    <ion-select [(ngModel)]="estatus" label="Actualizar Estatus de pedido" label-placement="floating">
+      <!-- <ion-select-option value="EN RUTA">EN RUTA</ion-select-option> -->
+      <ion-select-option value="ENTREGADO">ENTREGADO</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-select disabled [(ngModel)]="proveedor" label="Seleccionar proveedor" label-placement="floating">
+      <ion-select-option value="CELLULAR PLANET">CELLULAR PLANET</ion-select-option>
+      <ion-select-option value="ESTAFETA">ESTAFETA</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+      <ion-item>
+    <ion-input disabled [(ngModel)]="guia" label="Insertar el número guia" labelPlacement="floating" placeholder="Ingresa tu guia"></ion-input>
+  </ion-item>
+</div>
+
+
+
+
+
+
+<ion-button (click)="guardar(orden,estatus,proveedor,guia )" expand="block"  shape="round">
+ Guardar
+</ion-button>
+
+
+</ion-col>
+
+
+
+           
+            
+            
+
+
+
+          </ion-card-content>
+        </ion-card>
+
+
+
+
+
+      </ion-col>
+      
+
+
+
+    </ion-row>
+  </ion-grid>
+
+  
+
+</ion-content>

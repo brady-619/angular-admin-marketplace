@@ -25,5 +25,10 @@ export class HomePage {
     this.router.navigate(['envios']);
   }
 
+  salir(){
+    this.router.navigate(['login']);
+
+  }
+
 
 }
